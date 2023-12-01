@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TriggerFollow : MonoBehaviour
 {
-    //This script makes tge object move towards the target, if it enters the trigger collider.
+    //This script makes this object move towards the target, if it enters the  collider.
     //It stops moving when the target exist the collider.
 
     //object to target
