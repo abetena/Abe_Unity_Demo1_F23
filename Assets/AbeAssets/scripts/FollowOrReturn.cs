@@ -11,6 +11,8 @@ public class FollowOrReturn : MonoBehaviour
     //The enemy speed
     public float speed = 1.0f;
 
+    private UIScript ui;
+
     private Transform target;
     private Rigidbody2D rb;
     private bool _stop = false;
@@ -22,6 +24,9 @@ public class FollowOrReturn : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         //set player as Target from the the start
         targetPlayer();
+
+        ui = FindObjectOfType<UIScript>();
+        Debug.Log(this.gameObject.name + " has an UI");
     }
 
     // FixedUpdate is called after each physics calculations
@@ -31,7 +36,7 @@ public class FollowOrReturn : MonoBehaviour
         if (HomeBase && Player)
         {
             //If the stop boolean is false, chase whichever target is set
-            if (!_stop)
+            if (!_stop && !ui.gameOver)
             {
                 rb.MovePosition(Vector2.Lerp(transform.position, target.position, Time.fixedDeltaTime * speed));
             }
